@@ -1,0 +1,14 @@
+create database if not exists Database_Inicial;
+use Database_Inicial;
+
+create table if not exists usuario (
+
+ id_usuario int auto_increment not null,
+ nome_usuario varchar(45),
+ senha_usuario varchar(45),
+ primary key (id_usuario)
+ 
+ );
+ insert into usuario(nome_usuario,senha_usuario) VALUES 
+('rodrigo','123');
+ select * from usuario;
