@@ -29,4 +29,24 @@ public class UsuarioDAO {
       
            
         }
+
+        public ResultSet RegistrarUsuario(UsuarioDTO novoUsuarioDTO){
+
+            try{
+                String registroDeUsuarios = "INSERT INTO usuario(nome_usuario, senha_usuario) VALUES (?, ?)";
+
+                PreparedStatement pstm = conn.prepareStatement(registroDeUsuarios);
+
+                pstm.setString(1, novoUsuarioDTO.getNome_usuario());
+                pstm.setString(2, novoUsuarioDTO.getSenha_usuario());
+
+                ResultSet resultset = pstm.executeQuery();
+                return resultset;
+
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null,"Novo usuario DAO : " + e);
+                return null;
+            }
+
+        }
 }
